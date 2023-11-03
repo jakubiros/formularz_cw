@@ -31,11 +31,15 @@ namespace formularz.Models
 
         [Required]
         [Phone]
+        [MinLength(9)]
         public string Numer {  get; set; }
 
         [Required]
         [Range(10,80, ErrorMessage = "Wiek musi być pomiędzy 10 a 80.")]
         public int Wiek {  get; set; }
+
+        public string Kategoria { get; set; }
+        public enum Kategorie { Warszawa = 1, Kraków = 2, Wrocław = 3, Gdańsk=4, Lublin=5 }
 
 
     }

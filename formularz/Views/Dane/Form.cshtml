@@ -2,7 +2,7 @@
 
 
 @{
-    ViewData["Title"] = "Form";
+    ViewData["Title"] = "Formularz rejestracji";
 }
 @* <form asp-action="Form" method="post">
     <div asp-validation-summary="All"></div>
@@ -37,5 +37,8 @@
     <p>Potwierdzenie hasła: @Html.PasswordFor(a=>a.PotwierdzenieHasla)</p>
     <p>Numer telefonu: @Html.TextBoxFor(a=>a.Numer)</p>
     <p>Twój wiek: @Html.TextBoxFor(a=>a.Wiek)</p>
+    <p>Miasto: <select asp-for="Kategoria"
+            asp-items="Html.GetEnumSelectList<Dane.Kategorie>()">
+    </select></p>
     <input type="submit"/>
 }
