@@ -4,7 +4,7 @@
 @{
     ViewData["Title"] = "Form";
 }
-<form asp-action="Form" method="post">
+@* <form asp-action="Form" method="post">
     <div asp-validation-summary="All"></div>
     <div>
         <label asp-for="Imie">Twoje imie</label>
@@ -25,4 +25,17 @@
     <div>
         <input type="submit" />
     </div>
-</form>
+</form> *@
+
+@using (Html.BeginForm("Form", "Dane", FormMethod.Post))
+{
+    @Html.ValidationSummary(false,"",new {@class="text-danger"})
+    <p>Twoje imie: @Html.TextBoxFor(a=>a.Imie)</p>
+    <p>Twoje nazwisko: @Html.TextBoxFor(a=>a.Nazwisko)</p>
+    <p>Twoj Email: @Html.TextBoxFor(a=>a.Email)</p>
+    <p>Hasło: @Html.PasswordFor(a=>a.Haslo)</p>
+    <p>Potwierdzenie hasła: @Html.PasswordFor(a=>a.PotwierdzenieHasla)</p>
+    <p>Numer telefonu: @Html.TextBoxFor(a=>a.Numer)</p>
+    <p>Twój wiek: @Html.TextBoxFor(a=>a.Wiek)</p>
+    <input type="submit"/>
+}
